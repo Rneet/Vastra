@@ -151,7 +151,9 @@
                 <div class="group">
                     <div class="relative overflow-hidden rounded-lg mb-4">
                         <div class="absolute top-2 left-2 bg-yellow-500 text-xs font-bold px-2 py-1 rounded z-10">20% Off</div>
-                        <img src="{{ asset('images/products/banarasi-saree.jpg') }}" alt="Banarasi Silk Saree" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div class="aspect-w-1">
+                            <img src="{{ asset('images/product-1.jpeg') }}" alt="Banarasi Silk Saree" class="transition-transform duration-500 group-hover:scale-105">
+                        </div>
                     </div>
                     <div>
                         <p class="text-gray-500 text-sm">Saree</p>
@@ -167,7 +169,9 @@
                 <div class="group">
                     <div class="relative overflow-hidden rounded-lg mb-4">
                         <div class="absolute top-2 left-2 bg-yellow-500 text-xs font-bold px-2 py-1 rounded z-10">15% Off</div>
-                        <img src="{{ asset('') }}" alt="Designer Lehenga Choli" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div class="aspect-w-1">
+                            <img src="{{ asset('images/product-2.jpeg') }}" alt="Designer Lehenga Choli" class="transition-transform duration-500 group-hover:scale-105">
+                        </div>
                     </div>
                     <div>
                         <p class="text-gray-500 text-sm">Lehenga</p>
@@ -183,7 +187,7 @@
                 <div class="group">
                     <div class="relative overflow-hidden rounded-lg mb-4">
                         <div class="absolute top-2 left-2 bg-yellow-500 text-xs font-bold px-2 py-1 rounded z-10">25% Off</div>
-                        <img src="{{ asset('images/products/kanjeevaram-saree.jpg') }}" alt="Kanjeevaram Silk Saree" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                        <img src="{{ asset('images/product-5.jpeg') }}" alt="Kanjeevaram Silk Saree" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
                     </div>
                     <div>
                         <p class="text-gray-500 text-sm">Saree</p>
@@ -199,7 +203,7 @@
                 <div class="group">
                     <div class="relative overflow-hidden rounded-lg mb-4">
                         <div class="absolute top-2 left-2 bg-yellow-500 text-xs font-bold px-2 py-1 rounded z-10">15% Off</div>
-                        <img src="{{ asset('images/products/muga-silk.jpg') }}" alt="Muga Silk Mekhela Chador" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                        <img src="{{ asset('images/product-10.jpg') }}" alt="Muga Silk Mekhela Chador" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
                     </div>
                     <div>
                         <p class="text-gray-500 text-sm">Saree</p>
@@ -226,9 +230,7 @@
                     </a>
                 </div>
                 <div class="relative">
-                    <img src="{{ asset('images/promotion-banner.jpeg') }}" alt="Festive Collection" class="rounded-lg w-full">
                     <div class="absolute top-4 right-4 bg-secondary text-primary text-lg font-bold px-4 py-2 rounded-full">
-                        40% OFF
                     </div>
                 </div>
             </div>

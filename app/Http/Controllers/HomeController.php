@@ -23,7 +23,7 @@ class HomeController extends Controller
                 'price' => 2499,
                 'original_price' => 2999,
                 'discount_percentage' => 17,
-                'image' => 'images/products/product-1.jpg',
+                'image' => 'images/products/product-1.jpeg',
                 'rating' => 4.5,
                 'review_count' => 128,
                 'category' => 'Saree'
@@ -34,7 +34,7 @@ class HomeController extends Controller
                 'price' => 8999,
                 'original_price' => 11999,
                 'discount_percentage' => 25,
-                'image' => 'images/products/product-2.jpg',
+                'image' => 'images/products/product-2.jpeg',
                 'rating' => 4.8,
                 'review_count' => 96,
                 'category' => 'Lehenga'
@@ -45,7 +45,7 @@ class HomeController extends Controller
                 'price' => 2499,
                 'original_price' => 2999,
                 'discount_percentage' => 17,
-                'image' => 'images/products/product-3.jpg',
+                'image' => 'images/products/product-3.jpeg',
                 'rating' => 4.3,
                 'review_count' => 74,
                 'category' => 'Jewelry'

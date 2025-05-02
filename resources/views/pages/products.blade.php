@@ -162,8 +162,10 @@
                         <div class="group bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 transform hover:-translate-y-1">
                             <div class="relative overflow-hidden">
                                 <!-- Product image with zoom effect -->
-                                <img src="{{ asset('images/' . $product['image']) }}" alt="{{ $product['name'] }}" 
-                                     class="w-full h-64 object-cover object-center group-hover:scale-110 transition-transform duration-500">
+                                <div class="aspect-w-1 aspect-h-1 w-full">
+                                    <img src="{{ asset('images/' . $product['image']) }}" alt="{{ $product['name'] }}" 
+                                         class="w-full h-auto object-contain group-hover:scale-105 transition-transform duration-500">
+                                </div>
                                 
                                 <!-- Wishlist heart button (always visible) -->
                                 <div class="absolute top-2 right-2 z-10">

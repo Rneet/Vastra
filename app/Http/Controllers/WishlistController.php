@@ -39,7 +39,7 @@ class WishlistController extends Controller
                 'name' => 'Banarasi Silk Saree',
                 'price' => 2499,
                 'original_price' => 3299,
-                'image' => 'product-1.jpg',
+                'image' => 'product-1.jpeg',
                 'brand' => 'Ethnic Elegance'
             ],
             2 => [
@@ -47,7 +47,7 @@ class WishlistController extends Controller
                 'name' => 'Kanjivaram Silk Saree',
                 'price' => 3999,
                 'original_price' => 5299,
-                'image' => 'product-2.jpg',
+                'image' => 'product-2.jpeg',
                 'brand' => 'Heritage Weaves'
             ],
             3 => [
@@ -55,7 +55,7 @@ class WishlistController extends Controller
                 'name' => 'Chanderi Cotton Saree',
                 'price' => 1299,
                 'original_price' => 1799,
-                'image' => 'product-3.jpg',
+                'image' => 'product-3.jpeg',
                 'brand' => 'Cotton Crafts'
             ],
             4 => [
@@ -63,7 +63,7 @@ class WishlistController extends Controller
                 'name' => 'Designer Lehenga Choli',
                 'price' => 4999,
                 'original_price' => 7299,
-                'image' => 'product-4.jpg',
+                'image' => 'product-4.jpeg',
                 'brand' => 'Bridal Couture'
             ]
         ];

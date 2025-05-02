@@ -13,21 +13,17 @@
     <div class="row">
         <div class="col-md-6 mb-4">
             <div class="card shadow-sm">
-                <img src="https://via.placeholder.com/600x400" class="img-fluid" alt="{{ $product['name'] }}">
+                <div class="p-3 d-flex justify-content-center align-items-center" style="min-height: 400px;">
+                    <img src="{{ asset('images/' . $product['image']) }}" class="img-fluid" alt="{{ $product['name'] }}" style="max-height: 100%; width: auto;">
+                </div>
             </div>
             <div class="row mt-3">
                 <div class="col-3">
-                    <img src="https://via.placeholder.com/150" class="img-thumbnail" alt="Thumbnail">
+                    <div class="img-thumbnail d-flex justify-content-center align-items-center" style="height: 80px;">
+                        <img src="{{ asset('images/' . $product['image']) }}" class="img-fluid" alt="{{ $product['name'] }}" style="max-height: 100%; width: auto;">
+                    </div>
                 </div>
-                <div class="col-3">
-                    <img src="https://via.placeholder.com/150" class="img-thumbnail" alt="Thumbnail">
-                </div>
-                <div class="col-3">
-                    <img src="https://via.placeholder.com/150" class="img-thumbnail" alt="Thumbnail">
-                </div>
-                <div class="col-3">
-                    <img src="https://via.placeholder.com/150" class="img-thumbnail" alt="Thumbnail">
-                </div>
+                <!-- Additional thumbnails could be added here if you have multiple product images -->
             </div>
         </div>
         <div class="col-md-6">

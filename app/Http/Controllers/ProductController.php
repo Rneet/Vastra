@@ -23,7 +23,7 @@ class ProductController extends Controller
                 'discount' => 17,
                 'rating' => 4.5,
                 'is_new' => true,
-                'image' => 'product-1.jpg',
+                'image' => 'product-1.jpeg',
                 'category' => 'Sarees',
                 'color' => 'Red',
                 'size' => 'Free Size'
@@ -35,7 +35,7 @@ class ProductController extends Controller
                 'original_price' => 4599,
                 'discount' => 13,
                 'rating' => 5,
-                'image' => 'product-2.jpg',
+                'image' => 'product-5.jpeg',
                 'category' => 'Sarees',
                 'color' => 'Blue',
                 'size' => 'Free Size'
@@ -47,7 +47,7 @@ class ProductController extends Controller
                 'original_price' => 1599,
                 'discount' => 19,
                 'rating' => 4,
-                'image' => 'product-3.jpg',
+                'image' => 'product-6.jpeg',
                 'category' => 'Sarees',
                 'color' => 'Green',
                 'size' => 'Free Size'
@@ -60,7 +60,7 @@ class ProductController extends Controller
                 'discount' => 17,
                 'is_new' => true,
                 'rating' => 4.5,
-                'image' => 'product-4.jpg',
+                'image' => 'product-4.jpeg',
                 'category' => 'Lehengas',
                 'color' => 'Red',
                 'size' => 'M'
@@ -70,7 +70,7 @@ class ProductController extends Controller
                 'name' => 'Mysore Silk Saree', 
                 'price' => 2799, 
                 'rating' => 4,
-                'image' => 'product-5.jpg',
+                'image' => 'product-7.jpeg',
                 'category' => 'Sarees',
                 'color' => 'Yellow',
                 'size' => 'Free Size'
@@ -81,7 +81,7 @@ class ProductController extends Controller
                 'price' => 3499, 
                 'rating' => 4.5,
                 'is_new' => true,
-                'image' => 'product-6.jpg',
+                'image' => 'product-6.jpeg',
                 'category' => 'Sarees',
                 'color' => 'Purple',
                 'size' => 'Free Size'
@@ -93,7 +93,7 @@ class ProductController extends Controller
                 'original_price' => 2599,
                 'discount' => 15,
                 'rating' => 4,
-                'image' => 'product-7.jpg',
+                'image' => 'product-8.jpeg',
                 'category' => 'Suits',
                 'color' => 'Pink',
                 'size' => 'L'
@@ -103,7 +103,7 @@ class ProductController extends Controller
                 'name' => 'Banarasi Dupatta', 
                 'price' => 999, 
                 'rating' => 4.5,
-                'image' => 'product-8.jpg',
+                'image' => 'product-9.jpeg',
                 'category' => 'Accessories',
                 'color' => 'Black',
                 'size' => 'Free Size'
@@ -116,7 +116,7 @@ class ProductController extends Controller
                 'discount' => 17,
                 'rating' => 4,
                 'is_new' => true,
-                'image' => 'product-9.jpg',
+                'image' => 'product-4.jpeg',
                 'category' => 'Kurtis',
                 'color' => 'White',
                 'size' => 'S'
@@ -240,7 +240,7 @@ class ProductController extends Controller
                 'description' => 'Exquisite Banarasi Silk Saree with intricate zari work and rich pallu. Perfect for weddings and special occasions. Comes with matching blouse piece.',
                 'rating' => 4.5,
                 'is_new' => true,
-                'image' => 'product-1.jpg'
+                'image' => 'product-1.jpeg'
             ],
             2 => [
                 'id' => 2, 
@@ -250,7 +250,7 @@ class ProductController extends Controller
                 'discount' => 13,
                 'description' => 'Authentic Kanjivaram silk saree with traditional temple border and rich pallu. Handcrafted by skilled artisans from Tamil Nadu.',
                 'rating' => 5,
-                'image' => 'product-2.jpg'
+                'image' => 'product-2.jpeg'
             ],
             3 => [
                 'id' => 3, 
@@ -260,7 +260,7 @@ class ProductController extends Controller
                 'discount' => 19,
                 'description' => 'Lightweight Chanderi Cotton Saree with golden zari border. Perfect for daily wear and casual occasions.',
                 'rating' => 4,
-                'image' => 'product-3.jpg'
+                'image' => 'product-3.jpeg'
             ],
             4 => [
                 'id' => 4, 
@@ -271,7 +271,7 @@ class ProductController extends Controller
                 'description' => 'Stunning designer lehenga choli with heavy embroidery work. Includes choli, lehenga and dupatta. Perfect for weddings and festive occasions.',
                 'is_new' => true,
                 'rating' => 4.5,
-                'image' => 'product-4.jpg'
+                'image' => 'product-4.jpeg'
             ],
         ];
         

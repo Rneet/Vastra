@@ -17,21 +17,25 @@ class UserController extends Controller
      */
     public function profile()
     {
-        // Get the user data from session or use default values
-        $user = Session::get('user', (object) [
-            'id' => 1,
-            'name' => 'John Doe',
-            'email' => 'john.doe@example.com',
-            'phone' => '+91 9876543210',
-            'address' => [
-                'street' => '123 Main Street',
-                'city' => 'Mumbai',
-                'state' => 'Maharashtra',
-                'postal_code' => '400001',
-                'country' => 'India'
-            ],
-            'created_at' => '2023-01-15'
+        // Get the authenticated user
+        $user = Auth::user();
+        
+        // If user is not authenticated, redirect to login
+        if (!$user) {
+            return redirect()->route('login');
+        }
+        
+        // Get user address from session if it exists, otherwise use default values
+        $address = Session::get('user_address', [
+            'street' => '',
+            'city' => '',
+            'state' => '',
+            'postal_code' => '',
+            'country' => ''
         ]);
+        
+        // Add address to user object
+        $user->address = $address;
         
         return view('pages.profile', compact('user'));
     }
@@ -44,10 +48,18 @@ class UserController extends Controller
      */
     public function updateProfile(Request $request)
     {
+        // Get the authenticated user
+        $user = Auth::user();
+        
+        // If user is not authenticated, redirect to login
+        if (!$user) {
+            return redirect()->route('login');
+        }
+        
         // Validate the request
         $validated = $request->validate([
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', Rule::unique('users')->ignore($user->id)],
             'phone' => ['required', 'string', 'max:20'],
             'street' => ['required', 'string', 'max:255'],
             'city' => ['required', 'string', 'max:255'],
@@ -56,17 +68,15 @@ class UserController extends Controller
             'country' => ['required', 'string', 'max:255'],
         ]);
         
-        // Get the current user data
-        $user = Session::get('user', (object) [
-            'id' => 1,
-            'created_at' => '2023-01-15'
-        ]);
-        
-        // Update user data
+        // Update user data in the database
         $user->name = $validated['name'];
         $user->email = $validated['email'];
         $user->phone = $validated['phone'];
-        $user->address = [
+        $user->save();
+        
+        // Store address in user's session for now
+        // In a real application, you would store this in a separate addresses table
+        $address = [
             'street' => $validated['street'],
             'city' => $validated['city'],
             'state' => $validated['state'],
@@ -74,8 +84,7 @@ class UserController extends Controller
             'country' => $validated['country']
         ];
         
-        // Store updated user in session
-        Session::put('user', $user);
+        Session::put('user_address', $address);
         
         return redirect()->route('profile')->with('success', 'Profile updated successfully!');
     }
@@ -87,16 +96,16 @@ class UserController extends Controller
      */
     public function orders()
     {
-        // Get the user from session
-        $user = Session::get('user', (object) [
-            'id' => 1,
-            'name' => 'John Doe',
-            'email' => 'john.doe@example.com',
-            'created_at' => '2023-01-15'
-        ]);
+        // Get the authenticated user
+        $user = Auth::user();
         
-        // For demo purposes, we'll create an empty orders array
-        $orders = [];
+        // If user is not authenticated, redirect to login
+        if (!$user) {
+            return redirect()->route('login');
+        }
+        
+        // Get user's orders from the database
+        $orders = $user->orders()->with('items')->latest()->get();
         
         return view('pages.orders', compact('user', 'orders'));
     }

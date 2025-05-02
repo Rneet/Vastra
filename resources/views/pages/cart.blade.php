@@ -110,7 +110,7 @@
                             </div>
                             
                             <!-- Checkout Button -->
-                            <a href="#" class="block w-full bg-primary text-white text-center py-3 rounded-md hover:bg-primary-dark transition-colors duration-300">
+                            <a href="{{ route('checkout') }}" class="block w-full bg-primary text-white text-center py-3 rounded-md hover:bg-primary-dark transition-colors duration-300">
                                 Proceed to Checkout
                             </a>
                         </div>

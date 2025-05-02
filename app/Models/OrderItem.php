@@ -27,4 +27,12 @@ class OrderItem extends Model
     {
         return $this->belongsTo(Order::class);
     }
+
+    /**
+     * Get the product that owns the item.
+     */
+    public function product(): BelongsTo
+    {
+        return $this->belongsTo(Product::class);
+    }
 }

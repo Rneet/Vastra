@@ -2,6 +2,7 @@
     class="fixed w-full z-50 transition-all duration-300 bg-white shadow-md text-primary-dark"
     x-data="{ mobileMenuOpen: false, scrolled: false }"
     x-init="window.addEventListener('scroll', () => { scrolled = window.scrollY > 50; })"
+    :class="{'shadow-lg': scrolled}"
 >
     <div class="container mx-auto px-4 py-4">
         <div class="flex justify-between items-center">

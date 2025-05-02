@@ -45,25 +45,25 @@ class CartController extends Controller
                 'id' => 1,
                 'name' => 'Banarasi Silk Saree',
                 'price' => 2499,
-                'image' => 'product-1.jpg'
+                'image' => 'product-1.jpeg'
             ],
             2 => [
                 'id' => 2,
                 'name' => 'Kanjivaram Silk Saree',
                 'price' => 3999,
-                'image' => 'product-2.jpg'
+                'image' => 'product-2.jpeg'
             ],
             3 => [
                 'id' => 3,
                 'name' => 'Chanderi Cotton Saree',
                 'price' => 1299,
-                'image' => 'product-3.jpg'
+                'image' => 'product-3.jpeg'
             ],
             4 => [
                 'id' => 4,
                 'name' => 'Designer Lehenga Choli',
                 'price' => 4999,
-                'image' => 'product-4.jpg'
+                'image' => 'product-4.jpeg'
             ]
         ];
         

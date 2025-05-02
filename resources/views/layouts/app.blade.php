@@ -47,6 +47,21 @@
             from { opacity: 0; }
             to { opacity: 1; }
         }
+        
+        /* Aspect ratio utilities */
+        .aspect-w-1 {
+            position: relative;
+            padding-bottom: 100%;
+        }
+        
+        .aspect-w-1 img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            object-fit: contain;
+        }
     </style>
     
     <!-- Alpine.js -->
@@ -56,7 +71,8 @@
     <div class="flex flex-col min-h-screen">
         @include('components.navbar')
         
-        <main class="flex-grow">
+        <!-- Added padding-top to prevent navbar overlap -->
+        <main class="flex-grow pt-[76px]">
             @yield('content')
         </main>
         
