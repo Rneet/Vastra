@@ -51,9 +51,6 @@
     
     <!-- Alpine.js -->
     <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
-    
-    <!-- Vercel Analytics -->
-    <script defer src="{{ asset('js/analytics.js') }}"></script>
 </head>
 <body class="font-sans antialiased">
     <div class="flex flex-col min-h-screen">
