@@ -1,7 +1,7 @@
 {
-  "framework": "vite",
+  "framework": "laravel",
   "buildCommand": "npm run build",
-  "outputDirectory": "public/build",
+  "outputDirectory": "public",
   "devCommand": "npm run dev",
   "installCommand": "npm install",
   "rewrites": [
