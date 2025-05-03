@@ -88,20 +88,7 @@
                             </button>
                         </div>
 
-                        <div class="bg-white p-6 rounded-lg shadow-sm mb-6 hover:shadow-md transition-shadow border border-gray-100">
-                            <h3 class="font-bold text-lg mb-4 pb-2 border-b flex items-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="mr-2 text-primary"><path d="M12 15v2m0 4h5m-6 0a9 9 0 1 1 18 0 9 9 0 0 1-18 0z"></path></svg>
-                                Colors
-                            </h3>
-                            <div class="flex flex-wrap gap-2">
-                                @foreach($colors ?? [] as $colorName => $colorClass)
-                                <button type="button" onclick="selectColor('{{ $colorName }}')" 
-                                    class="w-8 h-8 rounded-full {{ $colorClass }} {{ $color == $colorName ? 'ring-2 ring-offset-2 ring-secondary' : 'border-2 border-transparent' }} focus:border-secondary">
-                                </button>
-                                @endforeach
-                            </div>
-                            <input type="hidden" name="color" id="selected-color" value="{{ $color ?? '' }}">
-                        </div>
+
 
                         <div class="bg-white p-6 rounded-lg shadow-sm mb-6 hover:shadow-md transition-shadow border border-gray-100">
                             <h3 class="font-bold text-lg mb-4 pb-2 border-b flex items-center">
