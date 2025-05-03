@@ -1,19 +1,17 @@
 @extends('layouts.admin')
-
 @section('content')
     <div class="mb-6 flex justify-between items-center">
         <div>
             <h1 class="text-2xl font-bold text-gray-900">Products</h1>
             <p class="mt-1 text-sm text-gray-600">Manage your product inventory</p>
         </div>
-        <a href="#" class="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-secondary hover:bg-secondary-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-secondary">
+        <a href="
             <svg xmlns="http://www.w3.org/2000/svg" class="-ml-1 mr-2 h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
             </svg>
             Add Product
         </a>
     </div>
-
     <!-- Products Table -->
     <div class="bg-white rounded-lg shadow overflow-hidden">
         <div class="overflow-x-auto">
@@ -66,8 +64,8 @@
                                 @endif
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                                <a href="#" class="text-blue-600 hover:text-blue-900 mr-3">Edit</a>
-                                <a href="#" class="text-red-600 hover:text-red-900">Delete</a>
+                                <a href="
+                                <a href="
                             </td>
                         </tr>
                     @empty

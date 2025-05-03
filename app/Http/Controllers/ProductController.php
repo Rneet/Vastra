@@ -1,19 +1,10 @@
 <?php
-
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
-
 class ProductController extends Controller
 {
-    /**
-     * Display a listing of the products.
-     *
-     * @return \Illuminate\View\View
-     */
     public function index(Request $request)
     {
-        // In a real application, you would fetch products from a database
         $products = collect([
             [
                 'id' => 1, 
@@ -122,42 +113,30 @@ class ProductController extends Controller
                 'size' => 'S'
             ],
         ]);
-        
-        // Get filter parameters
         $category = $request->input('category');
         $minPrice = $request->input('min_price', 0);
         $maxPrice = $request->input('max_price', 5000);
         $color = $request->input('color');
         $size = $request->input('size');
         $sort = $request->input('sort', 'newest');
-        
-        // Apply category filter
         if ($category && $category != 'All Categories') {
             $products = $products->filter(function ($product) use ($category) {
                 return $product['category'] == $category;
             });
         }
-        
-        // Apply price range filter
         $products = $products->filter(function ($product) use ($minPrice, $maxPrice) {
             return $product['price'] >= $minPrice && $product['price'] <= $maxPrice;
         });
-        
-        // Apply color filter
         if ($color) {
             $products = $products->filter(function ($product) use ($color) {
                 return $product['color'] == $color;
             });
         }
-        
-        // Apply size filter
         if ($size) {
             $products = $products->filter(function ($product) use ($size) {
                 return $product['size'] == $size;
             });
         }
-        
-        // Apply sorting
         switch ($sort) {
             case 'price_low_high':
                 $products = $products->sortBy('price');
@@ -170,17 +149,12 @@ class ProductController extends Controller
                 break;
             case 'newest':
             default:
-                // Assuming newest products have is_new flag
                 $products = $products->sortByDesc(function ($product) {
                     return isset($product['is_new']) && $product['is_new'] ? 1 : 0;
                 });
                 break;
         }
-        
-        // Get all available categories for the filter dropdown
         $categories = $products->pluck('category')->unique()->values()->all();
-        
-        // Get all available colors for the filter
         $colors = [
             'Black' => 'bg-black',
             'White' => 'bg-white border-2 border-gray-300',
@@ -191,11 +165,7 @@ class ProductController extends Controller
             'Purple' => 'bg-purple-500',
             'Pink' => 'bg-pink-500'
         ];
-        
-        // Get all available sizes
         $sizes = ['XS', 'S', 'M', 'L', 'XL', 'XXL', 'Free Size'];
-        
-        // Convert collection to paginator
         $perPage = 8;
         $page = $request->get('page', 1);
         $products = new \Illuminate\Pagination\LengthAwarePaginator(
@@ -205,8 +175,6 @@ class ProductController extends Controller
             $page,
             ['path' => $request->url(), 'query' => $request->query()]
         );
-        
-        // Pass filter parameters to the view
         return view('pages.products', compact(
             'products', 
             'categories', 
@@ -220,7 +188,6 @@ class ProductController extends Controller
             'sort'
         ));
     }
-
     public function show($product)
     {
         $products = [
@@ -267,11 +234,9 @@ class ProductController extends Controller
                 'image' => 'product-4.jpeg'
             ],
         ];
-        
         if (!isset($products[$product])) {
             abort(404);
         }
-        
         return view('pages.product-detail', ['product' => $products[$product]]);
     }
 }

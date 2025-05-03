@@ -1,5 +1,4 @@
 @extends('layouts.app')
-
 @section('content')
     <!-- Order Success Section -->
     <section class="py-16">
@@ -12,7 +11,6 @@
                     <h1 class="text-3xl font-bold text-gray-900 mb-2">Thank You for Your Order!</h1>
                     <p class="text-lg text-gray-600">Your order has been placed successfully.</p>
                 </div>
-                
                 <div class="border-t border-b py-4 mb-6">
                     <div class="flex flex-col md:flex-row justify-between mb-4">
                         <div>
@@ -29,7 +27,6 @@
                         </div>
                     </div>
                 </div>
-                
                 <div class="mb-6">
                     <h2 class="text-lg font-semibold mb-4">Order Summary</h2>
                     <div class="space-y-3">
@@ -48,7 +45,6 @@
                             </div>
                         @endforeach
                     </div>
-                    
                     <div class="space-y-2 border-b pb-4 mt-4 mb-4">
                         <div class="flex justify-between text-sm">
                             <span class="text-gray-600">Subtotal</span>
@@ -63,13 +59,11 @@
                             <span class="font-medium">₹{{ number_format($order->tax_amount, 0) }}</span>
                         </div>
                     </div>
-                    
                     <div class="flex justify-between text-lg font-bold">
                         <span>Total</span>
                         <span>₹{{ number_format($order->grand_total, 0) }}</span>
                     </div>
                 </div>
-                
                 <div class="text-center">
                     <p class="text-gray-600 mb-4">We've sent a confirmation email to <span class="font-medium">{{ $order->shipping_email }}</span></p>
                     <div class="flex flex-col sm:flex-row justify-center gap-4">

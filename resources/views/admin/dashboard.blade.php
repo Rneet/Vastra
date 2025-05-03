@@ -1,11 +1,9 @@
 @extends('layouts.admin')
-
 @section('content')
     <div class="mb-6">
         <h1 class="text-2xl font-bold text-gray-900">Dashboard</h1>
         <p class="mt-1 text-sm text-gray-600">Welcome to your admin dashboard</p>
     </div>
-
     <!-- Stats Cards -->
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
         <div class="bg-white rounded-lg shadow p-6">
@@ -21,7 +19,6 @@
                 </div>
             </div>
         </div>
-        
         <div class="bg-white rounded-lg shadow p-6">
             <div class="flex items-center">
                 <div class="p-3 rounded-full bg-green-100 text-green-500">
@@ -35,7 +32,6 @@
                 </div>
             </div>
         </div>
-        
         <div class="bg-white rounded-lg shadow p-6">
             <div class="flex items-center">
                 <div class="p-3 rounded-full bg-purple-100 text-purple-500">
@@ -50,7 +46,6 @@
             </div>
         </div>
     </div>
-    
     <!-- Recent Orders -->
     <div class="bg-white rounded-lg shadow overflow-hidden">
         <div class="px-6 py-4 border-b border-gray-200">
@@ -71,7 +66,7 @@
                 <tbody class="bg-white divide-y divide-gray-200">
                     @forelse($recentOrders as $order)
                         <tr>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">#{{ $order->id }}</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ $order->user->name }}</td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ $order->created_at->format('M d, Y') }}</td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">₹{{ number_format($order->total_amount, 2) }}</td>

@@ -1,5 +1,4 @@
 @extends('layouts.app')
-
 @section('content')
     <!-- Hero Section -->
     <section class="relative h-screen flex items-center bg-cover bg-center" style="background-image: url('{{ asset('images/bridal-attire.jpg') }}');">
@@ -19,13 +18,11 @@
             </div>
         </div>
     </section>
-
     <!-- Explore by Region -->
     <section class="py-16 bg-gray-50">
         <div class="container mx-auto px-4">
             <h2 class="text-3xl font-bold text-center mb-4">Explore by Region</h2>
             <p class="text-gray-600 text-center mb-12">India's diverse cultural heritage is reflected in its traditional clothing. Discover distinct styles from various regions.</p>
-            
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- North Indian -->
                 <div class="bg-white rounded-lg overflow-hidden shadow-sm group">
@@ -43,7 +40,6 @@
                         </a>
                     </div>
                 </div>
-                
                 <!-- South Indian -->
                 <div class="bg-white rounded-lg overflow-hidden shadow-sm group">
                     <div class="relative h-64 overflow-hidden">
@@ -60,7 +56,6 @@
                         </a>
                     </div>
                 </div>
-                
                 <!-- East Indian -->
                 <div class="bg-white rounded-lg overflow-hidden shadow-sm group">
                     <div class="relative h-64 overflow-hidden">
@@ -77,7 +72,6 @@
                         </a>
                     </div>
                 </div>
-                
                 <!-- West Indian -->
                 <div class="bg-white rounded-lg overflow-hidden shadow-sm group">
                     <div class="relative h-64 overflow-hidden">
@@ -94,7 +88,6 @@
                         </a>
                     </div>
                 </div>
-                
                 <!-- Northeast Indian -->
                 <div class="bg-white rounded-lg overflow-hidden shadow-sm group">
                     <div class="relative h-64 overflow-hidden">
@@ -111,7 +104,6 @@
                         </a>
                     </div>
                 </div>
-                
                 <!-- Fusion Wear -->
                 <div class="bg-white rounded-lg overflow-hidden shadow-sm group">
                     <div class="relative h-64 overflow-hidden">
@@ -131,7 +123,6 @@
             </div>
         </div>
     </section>
-
     <!-- Featured Collection -->
     <section class="py-16">
         <div class="container mx-auto px-4">
@@ -145,7 +136,6 @@
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-2"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
                 </a>
             </div>
-            
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                 <!-- Banarasi Silk Saree -->
                 <div class="group">
@@ -164,7 +154,6 @@
                         </div>
                     </div>
                 </div>
-                
                 <!-- Kutch Embroidered Sherwani -->
                 <div class="group">
                     <div class="relative overflow-hidden rounded-lg mb-4">
@@ -182,7 +171,6 @@
                         </div>
                     </div>
                 </div>
-                
                 <!-- Kanjeevaram Silk Saree -->
                 <div class="group">
                     <div class="relative overflow-hidden rounded-lg mb-4">
@@ -198,7 +186,6 @@
                         </div>
                     </div>
                 </div>
-                
                 <!-- Muga Silk Mekhela Chador -->
                 <div class="group">
                     <div class="relative overflow-hidden rounded-lg mb-4">
@@ -217,7 +204,6 @@
             </div>
         </div>
     </section>
-
     <!-- Promotion Banner -->
     <section class="py-16 bg-primary-dark text-white">
         <div class="container mx-auto px-4">
@@ -236,9 +222,6 @@
             </div>
         </div>
     </section>
-
-
-
     <!-- Newsletter -->
     <section class="py-16">
         <div class="container mx-auto px-4">

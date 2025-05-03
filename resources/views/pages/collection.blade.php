@@ -1,5 +1,4 @@
 @extends('layouts.app')
-
 @section('content')
 <!-- Collection Page -->
 <div class="container mx-auto px-4 pt-24 pb-8"> 
@@ -21,16 +20,13 @@
             <li><span class="text-primary">{{ $region }}</span></li>
         </ol>
     </nav>
-
     <h1 class="text-3xl font-bold mb-8">{{ $region }} Collection</h1>
-
     <div class="flex flex-col lg:flex-row gap-8">
         <!-- Sidebar Filters -->
         <div class="lg:w-1/4">
             <div class="mb-2 flex justify-between items-center">
                 <a href="{{ route('collection', ['region' => $region]) }}" class="text-primary text-sm hover:underline">Clear All filters</a>
             </div>
-
             <!-- Region Filter -->
             <div class="mb-6">
                 <div class="flex justify-between items-center cursor-pointer mb-2" onclick="toggleFilter('region')">
@@ -62,7 +58,6 @@
                     </div>
                 </div>
             </div>
-
             <!-- Category Filter -->
             <div class="mb-6">
                 <div class="flex justify-between items-center cursor-pointer mb-2" onclick="toggleFilter('category')">
@@ -102,7 +97,6 @@
                     </div>
                 </div>
             </div>
-
             <!-- Price Range Filter -->
             <div class="mb-6">
                 <div class="flex justify-between items-center cursor-pointer mb-2" onclick="toggleFilter('price')">
@@ -134,7 +128,6 @@
                     </div>
                 </div>
             </div>
-
             <!-- Occasion Filter -->
             <div class="mb-6">
                 <div class="flex justify-between items-center cursor-pointer mb-2" onclick="toggleFilter('occasion')">
@@ -159,7 +152,6 @@
                 </div>
             </div>
         </div>
-
         <!-- Products Grid -->
         <div class="lg:w-3/4">
             <!-- Products Header -->
@@ -175,7 +167,6 @@
                     </select>
                 </div>
             </div>
-
             @if(count($products) > 0)
             <!-- Products Grid -->
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -229,12 +220,10 @@
         </div>
     </div>
 </div>
-
 <script>
     function toggleFilter(type) {
         const filter = document.getElementById(`${type}-filter`);
         const icon = document.getElementById(`${type}-icon`);
-        
         if (filter.classList.contains('hidden')) {
             filter.classList.remove('hidden');
             icon.classList.remove('rotate-180');
@@ -243,8 +232,6 @@
             icon.classList.add('rotate-180');
         }
     }
-
-    // Form submission for filters
     document.querySelectorAll('input[type="radio"], input[type="checkbox"]').forEach(input => {
         input.addEventListener('change', function() {
             this.form.submit();

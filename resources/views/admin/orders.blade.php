@@ -1,5 +1,4 @@
 @extends('layouts.admin')
-
 @section('content')
     <div class="mb-6 flex justify-between items-center">
         <div>
@@ -7,7 +6,6 @@
             <p class="mt-1 text-sm text-gray-600">Manage all customer orders</p>
         </div>
     </div>
-
     <!-- Orders Table -->
     <div class="bg-white rounded-lg shadow overflow-hidden">
         <div class="overflow-x-auto">
@@ -25,7 +23,7 @@
                 <tbody class="bg-white divide-y divide-gray-200">
                     @forelse($orders as $order)
                         <tr>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">#{{ $order->id }}</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ $order->user->name }}</td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ $order->created_at->format('M d, Y') }}</td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">u20b9{{ number_format($order->total_amount, 2) }}</td>

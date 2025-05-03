@@ -1,5 +1,4 @@
 @extends('layouts.app')
-
 @section('content')
 <!-- Contact Us Hero Section -->
 <div class="bg-primary text-white py-16 text-center pt-24">
@@ -8,12 +7,10 @@
         <p class="text-lg max-w-2xl mx-auto">We'd love to hear from you. Reach out with any questions about our products or for collaboration opportunities.</p>
     </div>
 </div>
-
 <!-- Contact Form Section -->
 <div class="container mx-auto px-4 py-16">
     <div class="max-w-4xl mx-auto">
         <h2 class="text-2xl font-bold mb-8">Send Us a Message</h2>
-        
         <form action="{{ route('contact.submit') }}" method="POST" class="space-y-6" id="contactForm">
             @csrf
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -26,34 +23,28 @@
                     <input type="text" id="last_name" name="last_name" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-primary focus:border-primary">
                 </div>
             </div>
-            
             <div>
                 <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email Address <span class="text-red-500">*</span></label>
                 <input type="email" id="email" name="email" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-primary focus:border-primary">
             </div>
-            
             <div>
                 <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
                 <input type="tel" id="phone" name="phone" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-primary focus:border-primary">
             </div>
-            
             <div>
                 <label for="subject" class="block text-sm font-medium text-gray-700 mb-1">Subject <span class="text-red-500">*</span></label>
                 <input type="text" id="subject" name="subject" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-primary focus:border-primary">
             </div>
-            
             <div>
                 <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Your Message <span class="text-red-500">*</span></label>
                 <textarea id="message" name="message" rows="6" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-primary focus:border-primary"></textarea>
             </div>
-            
             <div>
                 <button type="submit" class="bg-primary text-white px-6 py-3 rounded-md font-medium hover:bg-primary-dark transition-colors duration-300">Send Message</button>
             </div>
         </form>
     </div>
 </div>
-
 <!-- Features Section -->
 <div class="bg-gray-100 py-12">
     <div class="container mx-auto px-4">
@@ -67,7 +58,6 @@
                 <h3 class="text-lg font-semibold mb-2">Secure Payment</h3>
                 <p class="text-gray-600">100% secure payment</p>
             </div>
-            
             <div class="bg-white p-6 rounded-lg shadow-sm text-center">
                 <div class="inline-block p-3 bg-primary/10 rounded-full mb-4">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -77,7 +67,6 @@
                 <h3 class="text-lg font-semibold mb-2">Quality Guarantee</h3>
                 <p class="text-gray-600">Authentic handcrafted products</p>
             </div>
-            
             <div class="bg-white p-6 rounded-lg shadow-sm text-center">
                 <div class="inline-block p-3 bg-primary/10 rounded-full mb-4">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -90,11 +79,9 @@
         </div>
     </div>
 </div>
-
 <!-- FAQ Section -->
 <div class="container mx-auto px-4 py-16">
     <h2 class="text-3xl font-bold text-center mb-12">Frequently Asked Questions</h2>
-    
     <div class="max-w-3xl mx-auto space-y-6">
         <div class="border border-gray-200 rounded-lg overflow-hidden">
             <button class="flex justify-between items-center w-full px-6 py-4 text-left font-medium" onclick="toggleFaq('faq1')">
@@ -107,7 +94,6 @@
                 <p class="text-gray-600">Yes, we ship to most countries worldwide. International shipping typically takes 7-14 business days depending on your location. Shipping fees and potential customs duties vary by destination.</p>
             </div>
         </div>
-        
         <div class="border border-gray-200 rounded-lg overflow-hidden">
             <button class="flex justify-between items-center w-full px-6 py-4 text-left font-medium" onclick="toggleFaq('faq2')">
                 <span>What is your return policy?</span>
@@ -119,7 +105,6 @@
                 <p class="text-gray-600">We accept returns within 14 days of delivery for items in their original condition. Custom-made orders are non-returnable unless there's a manufacturing defect. Please contact our customer service team to initiate a return.</p>
             </div>
         </div>
-        
         <div class="border border-gray-200 rounded-lg overflow-hidden">
             <button class="flex justify-between items-center w-full px-6 py-4 text-left font-medium" onclick="toggleFaq('faq3')">
                 <span>How do I care for traditional Indian garments?</span>
@@ -131,7 +116,6 @@
                 <p class="text-gray-600">Each garment comes with specific care instructions. Generally, we recommend dry cleaning for heavily embroidered items and gentle hand washing for most cotton garments. Always store in a cool, dry place, and avoid direct sunlight.</p>
             </div>
         </div>
-        
         <div class="border border-gray-200 rounded-lg overflow-hidden">
             <button class="flex justify-between items-center w-full px-6 py-4 text-left font-medium" onclick="toggleFaq('faq4')">
                 <span>Do you offer customization options?</span>
@@ -145,12 +129,10 @@
         </div>
     </div>
 </div>
-
 <script>
     function toggleFaq(id) {
         const content = document.getElementById(id);
         const icon = document.getElementById(`${id}-icon`);
-        
         if (content.classList.contains('hidden')) {
             content.classList.remove('hidden');
             icon.classList.add('rotate-180');
@@ -159,14 +141,10 @@
             icon.classList.remove('rotate-180');
         }
     }
-
-    // Fix for contact form submission
     document.addEventListener('DOMContentLoaded', function() {
         const contactForm = document.getElementById('contactForm');
         if (contactForm) {
             contactForm.addEventListener('submit', function(e) {
-                // Prevent default behavior that might be causing the mailto issue
-                // The form will submit normally through the action attribute
             });
         }
     });

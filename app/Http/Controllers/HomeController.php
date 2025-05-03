@@ -1,21 +1,12 @@
 <?php
-
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\ContactFormMail;
-
 class HomeController extends Controller
 {
-    /**
-     * Display the home page.
-     *
-     * @return \Illuminate\View\View
-     */
     public function index()
     {
-        // Create sample featured products for the home page
         $featuredProducts = [
             (object) [
                 'id' => 1,
@@ -51,53 +42,23 @@ class HomeController extends Controller
                 'category' => 'Jewelry'
             ]
         ];
-        
         return view('pages.home', compact('featuredProducts'));
     }
-
-    /**
-     * Display the collection page for a specific region.
-     *
-     * @param string $region
-     * @return \Illuminate\View\View
-     */
     public function collection($region)
     {
-        // Validate region
         $validRegions = ['north-indian', 'south-indian', 'east-indian', 'west-indian', 'northeast-indian', 'fusion-wear'];
-        
         if (!in_array($region, $validRegions)) {
             abort(404);
         }
-
-        // In a real application, you would fetch products from the database
-        // based on the region and any applied filters
         $products = [];
-        
-        // For demonstration purposes, we'll return an empty array
-        // to show the collection page
         return view('pages.collection', compact('region', 'products'));
     }
-    
-    /**
-     * Show the contact page.
-     *
-     * @return \Illuminate\View\View
-     */
     public function contact()
     {
         return view('pages.contact');
     }
-    
-    /**
-     * Process the contact form submission.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\RedirectResponse
-     */
     public function contactSubmit(Request $request)
     {
-        // Validate the form data
         $validated = $request->validate([
             'first_name' => 'required|string|max:50',
             'last_name' => 'required|string|max:50',
@@ -106,8 +67,6 @@ class HomeController extends Controller
             'subject' => 'required|string|max:100',
             'message' => 'required|string',
         ]);
-        
-        // Send email with form data
         try {
             Mail::to('ravneetsingh11a@gmail.com')->send(new ContactFormMail($validated));
             return redirect()->route('contact')->with('success', 'Thank you for your message. We will get back to you soon!');

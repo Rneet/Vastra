@@ -1,5 +1,4 @@
 @extends('layouts.app')
-
 @section('content')
 <div class="container py-5">
     <nav aria-label="breadcrumb" class="mb-4">
@@ -9,7 +8,6 @@
             <li class="breadcrumb-item active" aria-current="page">{{ $product['name'] }}</li>
         </ol>
     </nav>
-    
     <div class="row">
         <div class="col-md-6 mb-4">
             <div class="card shadow-sm">
@@ -48,7 +46,6 @@
                         </div>
                     </div>
                     <p class="mb-4">{{ $product['description'] }}</p>
-                    
                     <div class="mb-4">
                         <h5>Select Color</h5>
                         <div class="d-flex">
@@ -66,7 +63,6 @@
                             </div>
                         </div>
                     </div>
-                    
                     <div class="mb-4">
                         <h5>Select Size</h5>
                         <select class="form-select">
@@ -77,7 +73,6 @@
                             <option value="xl">Extra Large</option>
                         </select>
                     </div>
-                    
                     <div class="mb-4">
                         <h5>Quantity</h5>
                         <div class="input-group" style="width: 150px;">
@@ -86,7 +81,6 @@
                             <button class="btn btn-outline-secondary" type="button">+</button>
                         </div>
                     </div>
-                    
                     <div class="d-grid gap-2">
                         <button class="btn btn-primary btn-lg">Add to Cart</button>
                         <button class="btn btn-outline-secondary btn-lg">Add to Wishlist</button>
@@ -95,18 +89,17 @@
             </div>
         </div>
     </div>
-    
     <div class="card shadow-sm mt-5">
         <div class="card-header">
             <ul class="nav nav-tabs card-header-tabs" id="productTabs" role="tablist">
                 <li class="nav-item" role="presentation">
-                    <button class="nav-link active" id="description-tab" data-bs-toggle="tab" data-bs-target="#description" type="button" role="tab" aria-controls="description" aria-selected="true">Description</button>
+                    <button class="nav-link active" id="description-tab" data-bs-toggle="tab" data-bs-target="
                 </li>
                 <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="specifications-tab" data-bs-toggle="tab" data-bs-target="#specifications" type="button" role="tab" aria-controls="specifications" aria-selected="false">Specifications</button>
+                    <button class="nav-link" id="specifications-tab" data-bs-toggle="tab" data-bs-target="
                 </li>
                 <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="reviews-tab" data-bs-toggle="tab" data-bs-target="#reviews" type="button" role="tab" aria-controls="reviews" aria-selected="false">Reviews</button>
+                    <button class="nav-link" id="reviews-tab" data-bs-toggle="tab" data-bs-target="
                 </li>
             </ul>
         </div>
@@ -160,7 +153,6 @@
                         </div>
                         <p>Based on 24 reviews</p>
                     </div>
-                    
                     <div class="card mb-3">
                         <div class="card-body">
                             <div class="d-flex justify-content-between mb-2">
@@ -177,7 +169,6 @@
                             <p class="card-text">This product exceeded my expectations. The quality is excellent and it works perfectly for what I needed.</p>
                         </div>
                     </div>
-                    
                     <div class="card mb-3">
                         <div class="card-body">
                             <div class="d-flex justify-content-between mb-2">
@@ -194,7 +185,6 @@
                             <p class="card-text">I'm very satisfied with this purchase. It's not perfect but definitely worth the price.</p>
                         </div>
                     </div>
-                    
                     <div class="card mb-4">
                         <div class="card-body">
                             <div class="d-flex justify-content-between mb-2">
@@ -211,7 +201,6 @@
                             <p class="card-text">It's a decent product but there's room for improvement. The material could be better quality.</p>
                         </div>
                     </div>
-                    
                     <h5>Write a Review</h5>
                     <form>
                         <div class="mb-3">

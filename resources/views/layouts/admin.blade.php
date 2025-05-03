@@ -4,14 +4,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
     <title>{{ config('app.name', 'Vastra') }} - Admin</title>
-
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -36,19 +33,16 @@
             }
         }
     </script>
-    
     <!-- Custom CSS -->
     <style>
         .animate-fade-in {
             animation: fadeIn 0.3s ease-in-out;
         }
-        
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
         }
     </style>
-    
     <!-- Alpine.js -->
     <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
 </head>
@@ -61,7 +55,6 @@
                 <div class="flex items-center justify-center h-16 px-4 border-b border-gray-700">
                     <span class="font-display text-xl font-bold">Vastra Admin</span>
                 </div>
-                
                 <!-- Sidebar content -->
                 <div class="flex flex-col flex-grow pt-5 pb-4 overflow-y-auto">
                     <nav class="flex-1 px-2 space-y-1">
@@ -71,21 +64,18 @@
                             </svg>
                             Dashboard
                         </a>
-                        
                         <a href="{{ route('admin.orders') }}" class="flex items-center px-4 py-3 text-sm font-medium rounded-md {{ request()->routeIs('admin.orders*') ? 'bg-secondary text-white' : 'text-gray-300 hover:bg-gray-700' }}">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
                             </svg>
                             Orders
                         </a>
-                        
                         <a href="{{ route('admin.products') }}" class="flex items-center px-4 py-3 text-sm font-medium rounded-md {{ request()->routeIs('admin.products*') ? 'bg-secondary text-white' : 'text-gray-300 hover:bg-gray-700' }}">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
                             </svg>
                             Products
                         </a>
-                        
                         <a href="{{ route('admin.users') }}" class="flex items-center px-4 py-3 text-sm font-medium rounded-md {{ request()->routeIs('admin.users*') ? 'bg-secondary text-white' : 'text-gray-300 hover:bg-gray-700' }}">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
@@ -94,7 +84,6 @@
                         </a>
                     </nav>
                 </div>
-                
                 <!-- Sidebar footer -->
                 <div class="p-4 border-t border-gray-700">
                     <div class="flex items-center">
@@ -121,7 +110,6 @@
                 </div>
             </div>
         </div>
-        
         <!-- Mobile sidebar & overlay -->
         <div x-data="{ sidebarOpen: false }" class="md:hidden">
             <!-- Sidebar backdrop -->
@@ -136,7 +124,6 @@
                 x-transition:leave-start="opacity-100"
                 x-transition:leave-end="opacity-0"
             ></div>
-            
             <!-- Sidebar -->
             <div 
                 x-show="sidebarOpen"
@@ -157,7 +144,6 @@
                         </svg>
                     </button>
                 </div>
-                
                 <!-- Sidebar content -->
                 <div class="flex flex-col flex-grow pt-5 pb-4 overflow-y-auto">
                     <nav class="flex-1 px-2 space-y-1">
@@ -167,21 +153,18 @@
                             </svg>
                             Dashboard
                         </a>
-                        
                         <a href="{{ route('admin.orders') }}" class="flex items-center px-4 py-3 text-sm font-medium rounded-md {{ request()->routeIs('admin.orders*') ? 'bg-secondary text-white' : 'text-gray-300 hover:bg-gray-700' }}">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
                             </svg>
                             Orders
                         </a>
-                        
                         <a href="{{ route('admin.products') }}" class="flex items-center px-4 py-3 text-sm font-medium rounded-md {{ request()->routeIs('admin.products*') ? 'bg-secondary text-white' : 'text-gray-300 hover:bg-gray-700' }}">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
                             </svg>
                             Products
                         </a>
-                        
                         <a href="{{ route('admin.users') }}" class="flex items-center px-4 py-3 text-sm font-medium rounded-md {{ request()->routeIs('admin.users*') ? 'bg-secondary text-white' : 'text-gray-300 hover:bg-gray-700' }}">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
@@ -190,7 +173,6 @@
                         </a>
                     </nav>
                 </div>
-                
                 <!-- Sidebar footer -->
                 <div class="p-4 border-t border-gray-700">
                     <div class="flex items-center">
@@ -216,7 +198,6 @@
                     </div>
                 </div>
             </div>
-            
             <!-- Mobile top bar -->
             <div class="fixed top-0 left-0 right-0 z-30 bg-white shadow-md">
                 <div class="flex items-center justify-between h-16 px-4">
@@ -230,12 +211,10 @@
                 </div>
             </div>
         </div>
-        
         <!-- Main content -->
         <div class="flex flex-col flex-1 w-0 overflow-hidden">
             <!-- Main content header -->
             <div class="relative z-10 flex-shrink-0 flex h-16 bg-white shadow md:hidden"></div>
-            
             <!-- Main content body -->
             <main class="flex-1 relative overflow-y-auto focus:outline-none">
                 <div class="py-6">

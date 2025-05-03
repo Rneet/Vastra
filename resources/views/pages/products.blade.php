@@ -1,5 +1,4 @@
 @extends('layouts.app')
-
 @section('content')
     <!-- Hero Section with Creative Background -->
     <section class="pt-24 relative overflow-hidden">
@@ -7,20 +6,18 @@
         <div class="absolute inset-0 bg-gradient-to-r from-primary/5 to-secondary/5 z-0"></div>
         <div class="absolute -top-24 -right-24 w-96 h-96 bg-primary/10 rounded-full blur-3xl z-0"></div>
         <div class="absolute -bottom-24 -left-24 w-96 h-96 bg-secondary/10 rounded-full blur-3xl z-0"></div>
-        
         <div class="container mx-auto px-4 py-16 relative z-10">
             <div class="max-w-4xl mx-auto text-center">
                 <h1 class="text-5xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">Indian Traditional Collection</h1>
                 <p class="text-gray-600 text-lg max-w-2xl mx-auto mb-8">Explore our exquisite range of traditional Indian ethnic wear, including sarees, lehengas, and more at wholesale prices.</p>
                 <div class="flex flex-wrap justify-center gap-4 mb-6">
-                    <a href="#products" class="px-6 py-3 bg-primary text-white rounded-full hover:shadow-lg transition-all transform hover:-translate-y-1">
+                    <a href="
                         Shop Now
                     </a>
-                    <a href="#filters" class="px-6 py-3 border border-primary text-primary rounded-full hover:bg-primary hover:text-white hover:shadow-lg transition-all transform hover:-translate-y-1">
+                    <a href="
                         Browse Categories
                     </a>
                 </div>
-                
                 <!-- Featured categories quick access -->
                 <div class="flex flex-wrap justify-center gap-4 mt-8">
                     @foreach(['Sarees', 'Lehengas', 'Kurtis', 'Suits', 'Accessories'] as $cat)
@@ -33,7 +30,6 @@
             </div>
         </div>
     </section>
-
     <!-- Products Section with Enhanced Design -->
     <section class="py-12" id="products">
         <div class="container mx-auto px-4">
@@ -66,7 +62,6 @@
                                 @endforeach
                             </ul>
                         </div>
-
                         <div class="bg-white p-6 rounded-lg shadow-sm mb-6 hover:shadow-md transition-shadow border border-gray-100">
                             <h3 class="font-bold text-lg mb-4 pb-2 border-b flex items-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="mr-2 text-primary"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg>
@@ -87,9 +82,6 @@
                                 Apply Filter
                             </button>
                         </div>
-
-
-
                         <div class="bg-white p-6 rounded-lg shadow-sm mb-6 hover:shadow-md transition-shadow border border-gray-100">
                             <h3 class="font-bold text-lg mb-4 pb-2 border-b flex items-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="mr-2 text-primary"><path d="M12 15v2m0 4h5m-6 0a9 9 0 1 1 18 0 9 9 0 0 1-18 0z"></path></svg>
@@ -107,7 +99,6 @@
                         </div>
                     </form>
                 </div>
-
                 <!-- Products Grid with Enhanced Design -->
                 <div class="lg:w-3/4">
                     <div class="bg-white p-6 rounded-lg shadow-sm mb-8 border border-gray-100 hover:shadow-md transition-shadow">
@@ -142,7 +133,6 @@
                             </div>
                         </div>
                     </div>
-                    
                     <!-- Products with Enhanced Cards -->
                     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                         @foreach($products as $product)
@@ -153,14 +143,12 @@
                                     <img src="{{ asset('images/' . $product['image']) }}" alt="{{ $product['name'] }}" 
                                          class="w-full h-auto object-contain group-hover:scale-105 transition-transform duration-500">
                                 </div>
-                                
                                 <!-- Wishlist heart button (always visible) -->
                                 <div class="absolute top-2 right-2 z-10">
                                     <button type="button" class="toggle-wishlist-btn w-8 h-8 rounded-full bg-white shadow-md flex items-center justify-center hover:bg-secondary hover:text-white transition-colors" data-product-id="{{ $product['id'] }}">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="{{ in_array($product['id'], array_keys(session('wishlist', []))) ? 'currentColor' : 'none' }}" stroke="currentColor" stroke-width="2" class="heart-icon {{ in_array($product['id'], array_keys(session('wishlist', []))) ? 'text-red-500' : 'text-gray-600' }}"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
                                     </button>
                                 </div>
-                                
                                 <!-- Quick actions overlay -->
                                 <div class="absolute inset-0 bg-black bg-opacity-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                                     <div class="flex space-x-2">
@@ -169,30 +157,25 @@
                                         </a>
                                     </div>
                                 </div>
-                                
                                 <!-- Product badges with improved design -->
                                 @if(isset($product['is_new']) && $product['is_new'])
                                 <div class="absolute top-2 left-2">
                                     <span class="bg-secondary text-white text-xs px-3 py-1.5 rounded-full font-medium shadow-md">New</span>
                                 </div>
                                 @endif
-                                
                                 @if(isset($product['discount']) && $product['discount'] > 0)
                                 <div class="absolute top-2 right-2">
                                     <span class="bg-red-500 text-white text-xs px-3 py-1.5 rounded-full font-medium shadow-md">-{{ $product['discount'] }}%</span>
                                 </div>
                                 @endif
                             </div>
-                            
                             <div class="p-4">
                                 <!-- Category tag -->
                                 <div class="mb-2">
                                     <span class="text-xs text-gray-500 bg-gray-100 px-2 py-1 rounded-full">{{ $product['category'] ?? 'Traditional' }}</span>
                                 </div>
-                                
                                 <!-- Product name with hover effect -->
                                 <h3 class="text-lg font-medium mb-1 group-hover:text-primary transition-colors">{{ $product['name'] }}</h3>
-                                
                                 <!-- Rating with animated stars -->
                                 <div class="flex items-center mb-2">
                                     @for($i = 1; $i <= 5; $i++)
@@ -204,7 +187,6 @@
                                     @endfor
                                     <span class="text-gray-500 text-xs ml-1">({{ $product['rating'] }})</span>
                                 </div>
-                                
                                 <!-- Price with animated discount -->
                                 <div class="flex items-center mb-4">
                                     <span class="text-lg font-bold mr-2 text-primary">₹{{ number_format($product['price'], 0) }}</span>
@@ -213,7 +195,6 @@
                                         <span class="ml-2 text-xs text-green-500 font-medium">Save ₹{{ number_format($product['original_price'] - $product['price'], 0) }}</span>
                                     @endif
                                 </div>
-                                
                                 <!-- Add to cart button with animation -->
                                 <div class="relative z-10">
                                     <button type="button" class="add-to-cart-btn w-full bg-primary text-white py-2.5 rounded-md hover:bg-primary-dark transition-colors duration-300 flex items-center justify-center group-hover:shadow-md" data-product-id="{{ $product['id'] }}">
@@ -225,7 +206,6 @@
                         </div>
                         @endforeach
                     </div>
-                    
                     <!-- Enhanced Empty State -->
                     @if($products->isEmpty())
                     <div class="text-center py-16 bg-white rounded-lg shadow-sm border border-gray-100">
@@ -251,7 +231,6 @@
             </div>
         </div>
     </section>
-
     <!-- Enhanced Pagination -->
     <section class="pb-16">
         <div class="container mx-auto px-4">
@@ -272,7 +251,6 @@
                             </svg>
                         </a>
                     @endif
-
                     {{-- Pagination Elements --}}
                     @foreach ($products->getUrlRange(1, $products->lastPage()) as $page => $url)
                         @if ($page == $products->currentPage())
@@ -285,7 +263,6 @@
                             </a>
                         @endif
                     @endforeach
-
                     {{-- Next Page Link --}}
                     @if ($products->hasMorePages())
                         <a href="{{ $products->nextPageUrl() }}" class="relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 rounded-r-md transition-colors">
@@ -305,40 +282,29 @@
             @endif
         </div>
     </section>
-
     <!-- Add JavaScript for interactive elements -->
     <script>
-        // Function to toggle filters on mobile
         function toggleFilters() {
             const filterForm = document.getElementById('filter-form');
             filterForm.classList.toggle('hidden');
         }
-        
-        // Function to update sort
         function updateSort(value) {
             document.getElementById('sort-input').value = value;
             document.getElementById('filter-form').submit();
         }
-        
-        // Function to select color
         function selectColor(color) {
             document.getElementById('selected-color').value = color;
             document.getElementById('filter-form').submit();
         }
-        
-        // Function to select size
         function selectSize(size) {
             document.getElementById('selected-size').value = size;
             document.getElementById('filter-form').submit();
         }
-        
-        // Price range slider functionality
         document.addEventListener('DOMContentLoaded', function() {
             const minPriceInput = document.getElementById('min-price');
             const maxPriceInput = document.getElementById('max-price');
             const minPriceDisplay = document.getElementById('min-price-display');
             const maxPriceDisplay = document.getElementById('max-price-display');
-            
             if(minPriceInput && maxPriceInput) {
                 minPriceInput.addEventListener('input', function() {
                     minPriceDisplay.textContent = '₹' + this.value;
@@ -347,7 +313,6 @@
                         maxPriceDisplay.textContent = '₹' + maxPriceInput.value;
                     }
                 });
-                
                 maxPriceInput.addEventListener('input', function() {
                     maxPriceDisplay.textContent = '₹' + this.value;
                     if(parseInt(maxPriceInput.value) < parseInt(minPriceInput.value)) {
@@ -361,20 +326,14 @@
     <!-- Shop Page Scripts (Cart and Wishlist) -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Handle Add to Cart button clicks
             const addToCartButtons = document.querySelectorAll('.add-to-cart-btn');
-            
             addToCartButtons.forEach(button => {
                 button.addEventListener('click', function() {
                     const productId = this.getAttribute('data-product-id');
                     const originalText = this.innerHTML;
                     const button = this;
-                    
-                    // Show loading state
                     button.innerHTML = '<svg class="animate-spin -ml-1 mr-2 h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg> Adding...';
                     button.disabled = true;
-                    
-                    // Send AJAX request to add item to cart
                     fetch('{{ route('cart.add') }}', {
                         method: 'POST',
                         headers: {
@@ -389,25 +348,15 @@
                     .then(response => response.json())
                     .then(data => {
                         if (data.success) {
-                            // Show success state
                             button.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="mr-2"><path d="M20 6L9 17l-5-5"></path></svg> Added!';
-                            
-                            // Update cart count in navbar
                             updateCartCount(data.cart_count);
-                            
-                            // Show toast notification
                             showToast(data.product_name + ' added to cart!', 'success');
-                            
-                            // Reset button after 2 seconds
                             setTimeout(() => {
                                 button.innerHTML = originalText;
                                 button.disabled = false;
                             }, 2000);
                         } else {
-                            // Show error state
                             button.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="mr-2"><path d="M18 6L6 18M6 6l12 12"></path></svg> Error';
-                            
-                            // Reset button after 2 seconds
                             setTimeout(() => {
                                 button.innerHTML = originalText;
                                 button.disabled = false;
@@ -416,11 +365,7 @@
                     })
                     .catch(error => {
                         console.error('Error adding to cart:', error);
-                        
-                        // Show error state
                         button.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="mr-2"><path d="M18 6L6 18M6 6l12 12"></path></svg> Error';
-                        
-                        // Reset button after 2 seconds
                         setTimeout(() => {
                             button.innerHTML = originalText;
                             button.disabled = false;
@@ -428,20 +373,13 @@
                     });
                 });
             });
-            
-            // Handle Wishlist toggle button clicks
             const wishlistButtons = document.querySelectorAll('.toggle-wishlist-btn');
-            
             wishlistButtons.forEach(button => {
                 button.addEventListener('click', function() {
                     const productId = this.getAttribute('data-product-id');
                     const heartIcon = this.querySelector('.heart-icon');
                     const isInWishlist = heartIcon.getAttribute('fill') === 'currentColor';
-                    
-                    // Disable button during request
                     button.disabled = true;
-                    
-                    // Optimistic UI update - toggle heart fill immediately
                     if (isInWishlist) {
                         heartIcon.setAttribute('fill', 'none');
                         heartIcon.classList.remove('text-red-500');
@@ -450,17 +388,12 @@
                         heartIcon.setAttribute('fill', 'currentColor');
                         heartIcon.classList.remove('text-gray-600');
                         heartIcon.classList.add('text-red-500');
-                        
-                        // Add heart animation
                         button.classList.add('animate-pulse');
                         setTimeout(() => {
                             button.classList.remove('animate-pulse');
                         }, 500);
                     }
-                    
-                    // Send AJAX request to toggle wishlist status
                     const endpoint = isInWishlist ? '{{ route('wishlist.remove') }}' : '{{ route('wishlist.add') }}';
-                    
                     fetch(endpoint, {
                         method: 'POST',
                         headers: {
@@ -474,26 +407,20 @@
                     .then(response => response.json())
                     .then(data => {
                         if (data.success) {
-                            // Show toast notification
                             const message = isInWishlist 
                                 ? data.product_name + ' removed from wishlist!' 
                                 : data.product_name + ' added to wishlist!';
-                            
                             showToast(message, isInWishlist ? 'info' : 'success');
-                            
-                            // If server response doesn't match our optimistic update, revert the UI
                             if (isInWishlist && data.added) {
                                 heartIcon.setAttribute('fill', 'currentColor');
                                 heartIcon.classList.remove('text-gray-600');
                                 heartIcon.classList.add('text-red-500');
                             } else if (!isInWishlist && !data.added && data.message.includes('already')) {
-                                // Product was already in wishlist, keep it filled
                                 heartIcon.setAttribute('fill', 'currentColor');
                                 heartIcon.classList.remove('text-gray-600');
                                 heartIcon.classList.add('text-red-500');
                             }
                         } else {
-                            // Revert UI on error
                             if (isInWishlist) {
                                 heartIcon.setAttribute('fill', 'currentColor');
                                 heartIcon.classList.remove('text-gray-600');
@@ -503,17 +430,12 @@
                                 heartIcon.classList.remove('text-red-500');
                                 heartIcon.classList.add('text-gray-600');
                             }
-                            
                             showToast('Error updating wishlist', 'error');
                         }
-                        
-                        // Re-enable button
                         button.disabled = false;
                     })
                     .catch(error => {
                         console.error('Error updating wishlist:', error);
-                        
-                        // Revert UI on error
                         if (isInWishlist) {
                             heartIcon.setAttribute('fill', 'currentColor');
                             heartIcon.classList.remove('text-gray-600');
@@ -523,38 +445,29 @@
                             heartIcon.classList.remove('text-red-500');
                             heartIcon.classList.add('text-gray-600');
                         }
-                        
                         showToast('Error updating wishlist', 'error');
                         button.disabled = false;
                     });
                 });
             });
-            
-            // Function to update cart count in navbar
             function updateCartCount(count) {
                 const cartCountElements = document.querySelectorAll('.cart-count');
                 if (cartCountElements.length > 0) {
                     cartCountElements.forEach(el => {
                         el.textContent = count;
-                        // Show badge if it was hidden
                         if (count > 0) {
                             el.style.display = 'flex';
                         }
                     });
                 }
             }
-            
-            // Function to show toast notification
             function showToast(message, type = 'success') {
-                // Create toast element if it doesn't exist
                 let toast = document.getElementById('shop-toast');
                 if (!toast) {
                     toast = document.createElement('div');
                     toast.id = 'shop-toast';
                     document.body.appendChild(toast);
                 }
-                
-                // Set toast style based on type
                 let bgColor, icon;
                 switch(type) {
                     case 'success':
@@ -573,18 +486,11 @@
                         bgColor = 'bg-green-500';
                         icon = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="mr-2"><path d="M20 6L9 17l-5-5"></path></svg>';
                 }
-                
                 toast.className = `fixed top-20 right-4 ${bgColor} text-white px-4 py-2 rounded-lg shadow-lg transform transition-all duration-500 translate-x-full opacity-0 z-50 flex items-center`;
-                
-                // Set message and show toast
                 toast.innerHTML = `${icon} ${message}`;
-                
-                // Animate toast in
                 setTimeout(() => {
                     toast.classList.remove('translate-x-full', 'opacity-0');
                 }, 10);
-                
-                // Animate toast out after 3 seconds
                 setTimeout(() => {
                     toast.classList.add('translate-x-full', 'opacity-0');
                 }, 3000);

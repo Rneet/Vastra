@@ -1,11 +1,9 @@
 @extends('layouts.app')
-
 @section('content')
     <!-- Checkout Section -->
     <section class="py-16">
         <div class="container mx-auto px-4">
             <h1 class="text-3xl font-bold mb-8">Checkout</h1>
-            
             <form action="{{ route('checkout.process') }}" method="POST" class="checkout-form">
                 @csrf
                 <div class="flex flex-col lg:flex-row gap-8">
@@ -84,7 +82,6 @@
                                 </div>
                             </div>
                         </div>
-                        
                         <div class="bg-white rounded-lg shadow-sm overflow-hidden">
                             <div class="p-6 border-b">
                                 <h2 class="text-xl font-semibold">Payment Method</h2>
@@ -108,12 +105,10 @@
                             </div>
                         </div>
                     </div>
-                    
                     <!-- Order Summary -->
                     <div class="lg:w-1/3">
                         <div class="bg-white rounded-lg shadow-sm p-6 sticky top-24">
                             <h2 class="text-xl font-semibold mb-4">Order Summary</h2>
-                            
                             <div class="space-y-3 mb-4">
                                 @foreach($cartItems as $item)
                                     <div class="flex items-center justify-between py-2 border-b">
@@ -130,7 +125,6 @@
                                     </div>
                                 @endforeach
                             </div>
-                            
                             <div class="space-y-2 border-b pb-4 mb-4">
                                 <div class="flex justify-between text-sm">
                                     <span class="text-gray-600">Subtotal</span>
@@ -145,12 +139,10 @@
                                     <span class="font-medium">₹{{ number_format($tax, 0) }}</span>
                                 </div>
                             </div>
-                            
                             <div class="flex justify-between text-lg font-bold mb-6">
                                 <span>Total</span>
                                 <span>₹{{ number_format($total, 0) }}</span>
                             </div>
-                            
                             <button type="submit" class="w-full bg-primary text-white text-center py-3 rounded-md hover:bg-primary-dark transition-colors duration-300">
                                 Place Order
                             </button>

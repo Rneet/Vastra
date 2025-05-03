@@ -1,16 +1,12 @@
 <?php
-
 namespace App\Models;
-
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-
 class Order extends Model
 {
     use HasFactory;
-
     protected $fillable = [
         'user_id',
         'order_number',
@@ -31,34 +27,22 @@ class Order extends Model
         'shipping_country',
         'notes',
     ];
-
-
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }
-
-
     public function items(): HasMany
     {
         return $this->hasMany(OrderItem::class);
     }
-
-
     public function getFormattedStatusAttribute(): string
     {
         return ucfirst($this->status);
     }
-
-
     public function getFormattedPaymentStatusAttribute(): string
     {
         return ucfirst($this->payment_status);
     }
-
-    /**
-     * Get the formatted date.
-     */
     public function getFormattedDateAttribute(): string
     {
         return $this->created_at->format('M d, Y');

@@ -1,5 +1,4 @@
 @extends('layouts.app')
-
 @section('content')
 <div class="bg-gray-50 py-12">
     <div class="container mx-auto px-4">
@@ -16,17 +15,14 @@
                     </div>
                 </div>
             </div>
-
             <!-- Profile Navigation -->
             <div class="flex flex-wrap mb-6 gap-2">
                 <a href="{{ route('profile') }}" class="px-4 py-2 bg-white text-gray-700 rounded-md hover:bg-gray-100 transition-colors">My Profile</a>
                 <a href="{{ route('profile.orders') }}" class="px-4 py-2 bg-primary text-white rounded-md hover:bg-primary-dark transition-colors">Order History</a>
             </div>
-
             <!-- Orders List -->
             <div class="bg-white rounded-lg shadow-sm p-6">
                 <h2 class="text-xl font-bold mb-6 pb-2 border-b">Order History</h2>
-                
                 @if(count($orders) > 0)
                     <div class="space-y-6">
                         @foreach($orders as $order)
@@ -34,7 +30,7 @@
                                 <!-- Order Header -->
                                 <div class="bg-gray-50 p-4 border-b flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
                                     <div>
-                                        <h3 class="font-medium text-gray-900">Order #{{ $order->order_number }}</h3>
+                                        <h3 class="font-medium text-gray-900">Order 
                                         <p class="text-sm text-gray-500">Placed on {{ $order->formatted_date }}</p>
                                     </div>
                                     <div class="flex flex-col sm:flex-row gap-2 items-start sm:items-center">
@@ -55,7 +51,6 @@
                                         </div>
                                     </div>
                                 </div>
-                                
                                 <!-- Order Items -->
                                 <div class="p-4 border-b">
                                     <div class="space-y-3">
@@ -75,7 +70,6 @@
                                         @endforeach
                                     </div>
                                 </div>
-                                
                                 <!-- Order Summary -->
                                 <div class="p-4 bg-gray-50 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
                                     <div class="text-sm">

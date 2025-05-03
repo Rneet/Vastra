@@ -1,10 +1,8 @@
 @extends('layouts.app')
-
 @section('content')
 <div class="container mx-auto px-4 py-12 pt-24">
     <div class="max-w-4xl mx-auto">
         <h1 class="text-2xl font-bold mb-6">My Wishlist <span class="text-gray-500 font-normal">{{ count($wishlistItems) }} {{ count($wishlistItems) == 1 ? 'item' : 'items' }}</span></h1>
-        
         @if(count($wishlistItems) > 0)
             <div class="bg-white rounded-lg shadow-sm p-6">
                 @foreach($wishlistItems as $item)
@@ -17,7 +15,6 @@
                                     <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-gray-500"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
                                 </button>
                             </div>
-                            
                             <!-- Product Details -->
                             <div class="flex-1">
                                 <h3 class="font-medium text-lg mb-1">{{ $item['name'] }}</h3>
@@ -30,7 +27,6 @@
                                     @endif
                                 </div>
                             </div>
-                            
                             <!-- Move to Bag Button -->
                             <div class="w-full sm:w-auto mt-4 sm:mt-0">
                                 <form action="{{ route('wishlist.move-to-cart') }}" method="POST">
@@ -49,7 +45,6 @@
             <div class="bg-white rounded-lg shadow-sm p-8 text-center">
                 <h2 class="text-xl font-medium mb-4">YOUR WISHLIST IS EMPTY</h2>
                 <p class="text-gray-500 mb-8 max-w-md mx-auto">Add items that you like to your wishlist. Review them anytime and easily move them to the bag.</p>
-                
                 <div class="w-24 h-24 mx-auto mb-8 relative">
                     <div class="absolute inset-0 border-2 border-teal-200 rounded-md rotate-3"></div>
                     <div class="absolute inset-0 border-2 border-teal-200 rounded-md -rotate-3"></div>
@@ -57,7 +52,6 @@
                         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" class="text-amber-400"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
                     </div>
                 </div>
-                
                 <a href="{{ route('products') }}" class="inline-block bg-blue-500 text-white px-6 py-3 rounded-md font-medium hover:bg-blue-600 transition-colors">
                     CONTINUE SHOPPING
                 </a>
@@ -65,10 +59,8 @@
         @endif
     </div>
 </div>
-
 <script>
     function removeFromWishlist(productId) {
-        // In a real application, this would make an AJAX call to remove the item
         if (confirm('Are you sure you want to remove this item from your wishlist?')) {
             window.location.href = '{{ route("wishlist.remove") }}?product_id=' + productId;
         }

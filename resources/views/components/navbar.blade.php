@@ -10,7 +10,6 @@
             <a href="{{ route('home') }}" class="flex items-center">
                 <span class="font-display text-2xl md:text-3xl font-bold">Vastra</span>
             </a>
-
             <!-- Desktop Navigation -->
             <nav class="hidden md:flex space-x-8">
                 <a href="{{ route('home') }}" class="font-medium hover:text-secondary transition-colors duration-200 {{ request()->routeIs('home') ? 'border-b-2 border-secondary' : '' }}">
@@ -23,7 +22,6 @@
                     Contact
                 </a>
             </nav>
-
             <!-- Desktop Actions -->
             <div class="hidden md:flex items-center space-x-6">
                 <button class="hover:text-secondary transition-colors duration-200">
@@ -50,7 +48,6 @@
                         <button @click="profileMenuOpen = !profileMenuOpen" class="hover:text-secondary transition-colors duration-200">
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-user"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
                         </button>
-                        
                         <!-- Profile Dropdown Menu -->
                         <div 
                             x-show="profileMenuOpen" 
@@ -79,7 +76,6 @@
                     </div>
                 @endguest
             </div>
-
             <!-- Mobile Menu Button -->
             <button 
                 class="md:hidden text-2xl"
@@ -94,7 +90,6 @@
             </button>
         </div>
     </div>
-
     <!-- Mobile Menu -->
     <div 
         class="md:hidden bg-white text-primary-dark animate-fade-in"
@@ -118,7 +113,6 @@
                     Contact
                 </a>
             </nav>
-            
             <div class="flex justify-between mt-6 pt-4 border-t border-gray-200">
                 <button class="flex items-center space-x-2 hover:text-secondary transition-colors duration-200">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
@@ -138,7 +132,6 @@
                     @endif
                 </a>
             </div>
-            
             <!-- Mobile Authentication Links -->
             @guest
                 <a href="{{ route('login') }}" class="block mt-4 pt-4 border-t border-gray-200 font-medium hover:text-secondary transition-colors duration-200">
@@ -153,7 +146,6 @@
                     <div class="font-medium">{{ Auth::user()->name }}</div>
                     <div class="text-sm text-gray-500">{{ Auth::user()->phone }}</div>
                 </div>
-                
                 <!-- Profile Links -->
                 <a href="{{ route('profile') }}" class="block mt-3 font-medium hover:text-secondary transition-colors duration-200">
                     <div class="flex items-center space-x-2">
@@ -167,7 +159,6 @@
                         <span>My Orders</span>
                     </div>
                 </a>
-                
                 <!-- Logout Form -->
                 <form method="POST" action="{{ route('logout') }}" class="mt-3">
                     @csrf

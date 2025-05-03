@@ -1,11 +1,9 @@
 @extends('layouts.app')
-
 @section('content')
     <!-- Cart Section -->
     <section class="py-16">
         <div class="container mx-auto px-4">
             <h1 class="text-3xl font-bold mb-8">Your Shopping Cart</h1>
-            
             @if(count($cartItems) > 0)
                 <div class="flex flex-col lg:flex-row gap-8 cart-items-container">
                     <!-- Cart Items -->
@@ -14,7 +12,6 @@
                             <div class="p-6 border-b">
                                 <h2 class="text-xl font-semibold">Cart Items ({{ count($cartItems) }})</h2>
                             </div>
-                            
                             <div class="divide-y">
                                 @foreach($cartItems as $id => $item)
                                 <div class="p-6 flex flex-col sm:flex-row items-start sm:items-center gap-4" id="cart-item-{{ $id }}">
@@ -22,7 +19,6 @@
                                     <div class="w-24 h-24 flex-shrink-0">
                                         <img src="{{ asset('images/' . $item['image']) }}" alt="{{ $item['name'] }}" class="w-full h-full object-cover rounded">
                                     </div>
-                                    
                                     <!-- Product Details -->
                                     <div class="flex-grow">
                                         <h3 class="font-medium text-lg">{{ $item['name'] }}</h3>
@@ -31,7 +27,6 @@
                                             <span class="text-primary-dark font-bold">₹{{ number_format($item['price'], 0) }}</span>
                                         </div>
                                     </div>
-                                    
                                     <!-- Quantity Controls -->
                                     <div class="flex items-center border rounded-md">
                                         <button type="button" class="px-3 py-1 border-r update-quantity" data-product-id="{{ $id }}" data-action="decrease">
@@ -42,7 +37,6 @@
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>
                                         </button>
                                     </div>
-                                    
                                     <!-- Subtotal and Remove -->
                                     <div class="flex flex-col items-end gap-2">
                                         <span class="font-semibold subtotal" data-product-id="{{ $id }}" data-price="{{ $item['price'] }}">
@@ -57,7 +51,6 @@
                                 @endforeach
                             </div>
                         </div>
-                        
                         <!-- Continue Shopping and Clear Cart -->
                         <div class="flex justify-between mt-6">
                             <a href="{{ route('products') }}" class="flex items-center text-primary hover:text-secondary transition-colors duration-200">
@@ -73,12 +66,10 @@
                             </form>
                         </div>
                     </div>
-                    
                     <!-- Order Summary -->
                     <div class="lg:w-1/3">
                         <div class="bg-white rounded-lg shadow-sm p-6 sticky top-24 order-summary">
                             <h2 class="text-xl font-semibold mb-4">Order Summary</h2>
-                            
                             <div class="space-y-3 mb-6">
                                 <div class="flex justify-between">
                                     <span class="text-gray-600">Subtotal</span>
@@ -99,7 +90,6 @@
                                     </div>
                                 </div>
                             </div>
-                            
                             <!-- Coupon Code -->
                             <div class="mb-6">
                                 <label for="coupon" class="block text-sm font-medium text-gray-700 mb-1">Coupon Code</label>
@@ -108,7 +98,6 @@
                                     <button type="button" class="bg-secondary text-white px-4 py-2 rounded-r-md hover:bg-secondary-dark transition-colors duration-300">Apply</button>
                                 </div>
                             </div>
-                            
                             <!-- Checkout Button -->
                             <a href="{{ route('checkout') }}" class="block w-full bg-primary text-white text-center py-3 rounded-md hover:bg-primary-dark transition-colors duration-300">
                                 Proceed to Checkout
@@ -130,23 +119,17 @@
             @endif
         </div>
     </section>
-
     <!-- Update Cart Script -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Function to update the order summary with new totals
             function updateOrderSummary(data) {
-                // Update subtotal
                 const subtotalElement = document.querySelector('.subtotal-value');
                 if (subtotalElement) {
                     subtotalElement.textContent = data.total || '₹0';
                 }
-                
-                // Update tax
                 const taxElement = document.querySelector('.tax-value');
                 if (taxElement) {
                     if (data.total) {
-                        // Extract numeric value from total string
                         const totalValue = parseFloat(data.total.replace(/[^0-9]/g, ''));
                         const tax = totalValue * 0.05;
                         taxElement.textContent = '₹' + tax.toLocaleString('en-IN', { maximumFractionDigits: 0 });
@@ -154,33 +137,24 @@
                         taxElement.textContent = '₹0';
                     }
                 }
-                
-                // Update grand total
                 const grandTotalElement = document.querySelector('.grand-total-value');
                 if (grandTotalElement) {
                     grandTotalElement.textContent = data.grand_total || '₹0';
                 }
-                
-                // Update cart count in navbar
                 const cartCountElements = document.querySelectorAll('.cart-count');
                 if (cartCountElements.length > 0) {
                     const count = data.cart_count || 0;
                     cartCountElements.forEach(el => {
                         el.textContent = count;
-                        // Hide badge if count is 0
                         if (count === 0) {
                             el.style.display = 'none';
                         }
                     });
                 }
-                
-                // If cart is empty, reload to show empty cart template
                 if (data.cart_count === 0) {
                     window.location.reload();
                 }
             }
-            
-            // Handle quantity update buttons
             const updateButtons = document.querySelectorAll('.update-quantity');
             updateButtons.forEach(button => {
                 button.addEventListener('click', function() {
@@ -188,24 +162,18 @@
                     const action = this.getAttribute('data-action');
                     const inputEl = document.querySelector(`.quantity-input[data-product-id="${productId}"]`);
                     let quantity = parseInt(inputEl.value);
-                    
                     if (action === 'increase') {
                         quantity += 1;
                     } else if (action === 'decrease' && quantity > 1) {
                         quantity -= 1;
                     }
-                    
                     inputEl.value = quantity;
-                    
-                    // Update subtotal display immediately for better UX
                     const subtotalEl = document.querySelector(`.subtotal[data-product-id="${productId}"]`);
                     if (subtotalEl) {
                         const price = parseFloat(subtotalEl.getAttribute('data-price'));
                         const subtotal = price * quantity;
                         subtotalEl.textContent = '₹' + subtotal.toLocaleString('en-IN', { maximumFractionDigits: 0 });
                     }
-                    
-                    // Send AJAX request to update cart
                     fetch('{{ route('cart.update') }}', {
                         method: 'POST',
                         headers: {
@@ -220,7 +188,6 @@
                     .then(response => response.json())
                     .then(data => {
                         if (data.success) {
-                            // Update order summary with new totals
                             updateOrderSummary(data);
                         }
                     })
@@ -229,24 +196,18 @@
                     });
                 });
             });
-            
-            // Handle direct input changes
             const quantityInputs = document.querySelectorAll('.quantity-input');
             quantityInputs.forEach(input => {
                 input.addEventListener('change', function() {
                     const productId = this.getAttribute('data-product-id');
                     const quantity = parseInt(this.value) || 1;
                     this.value = quantity < 1 ? 1 : quantity;
-                    
-                    // Update subtotal display immediately
                     const subtotalEl = document.querySelector(`.subtotal[data-product-id="${productId}"]`);
                     if (subtotalEl) {
                         const price = parseFloat(subtotalEl.getAttribute('data-price'));
                         const subtotal = price * quantity;
                         subtotalEl.textContent = '₹' + subtotal.toLocaleString('en-IN', { maximumFractionDigits: 0 });
                     }
-                    
-                    // Send AJAX request to update cart
                     fetch('{{ route('cart.update') }}', {
                         method: 'POST',
                         headers: {
@@ -261,7 +222,6 @@
                     .then(response => response.json())
                     .then(data => {
                         if (data.success) {
-                            // Update order summary with new totals
                             updateOrderSummary(data);
                         }
                     })
@@ -270,21 +230,15 @@
                     });
                 });
             });
-            
-            // Handle remove item buttons - direct approach without forms
             const removeButtons = document.querySelectorAll('.remove-item-btn');
             removeButtons.forEach(button => {
                 button.addEventListener('click', function() {
                     const productId = this.getAttribute('data-product-id');
                     const cartItem = document.getElementById(`cart-item-${productId}`);
-                    
-                    // Remove the item from the DOM immediately for better UX
                     if (cartItem) {
                         cartItem.style.opacity = '0.5';
                         cartItem.style.pointerEvents = 'none';
                     }
-                    
-                    // Send AJAX request to remove item
                     fetch('{{ route('cart.remove') }}', {
                         method: 'POST',
                         headers: {
@@ -298,18 +252,14 @@
                     .then(response => response.json())
                     .then(data => {
                         if (data.success) {
-                            // Remove the item from the DOM completely
                             if (cartItem) {
                                 cartItem.remove();
                             }
-                            
-                            // Update order summary with new totals
                             updateOrderSummary(data);
                         }
                     })
                     .catch(error => {
                         console.error('Error removing item:', error);
-                        // Restore the item if there was an error
                         if (cartItem) {
                             cartItem.style.opacity = '1';
                             cartItem.style.pointerEvents = 'auto';
