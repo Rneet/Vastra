@@ -22,11 +22,7 @@ class PhoneVerification extends Model
         'verified' => 'boolean',
     ];
 
-    /**
-     * Generate a random OTP code.
-     *
-     * @return string
-     */
+
     public static function generateOtp(): string
     {
         return (string) rand(100000, 999999);

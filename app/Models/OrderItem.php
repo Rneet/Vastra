@@ -20,17 +20,12 @@ class OrderItem extends Model
         'image',
     ];
 
-    /**
-     * Get the order that owns the item.
-     */
+
     public function order(): BelongsTo
     {
         return $this->belongsTo(Order::class);
     }
 
-    /**
-     * Get the product that owns the item.
-     */
     public function product(): BelongsTo
     {
         return $this->belongsTo(Product::class);

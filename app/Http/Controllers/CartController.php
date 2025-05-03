@@ -6,16 +6,12 @@ use Illuminate\Http\Request;
 
 class CartController extends Controller
 {
-    // No constructor needed
+
     
-    /**
-     * Display the shopping cart.
-     *
-     * @return \Illuminate\View\View
-     */
+
     public function index()
     {
-        // Get cart items from session or initialize empty array
+
         $cartItems = session('cart', []);
         
         // Calculate total

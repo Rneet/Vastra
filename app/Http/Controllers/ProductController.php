@@ -221,15 +221,8 @@ class ProductController extends Controller
         ));
     }
 
-    /**
-     * Display the specified product.
-     *
-     * @param  int  $product
-     * @return \Illuminate\View\View
-     */
     public function show($product)
     {
-        // Product data for Indian traditional clothing
         $products = [
             1 => [
                 'id' => 1, 

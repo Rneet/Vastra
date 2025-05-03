@@ -32,33 +32,25 @@ class Order extends Model
         'notes',
     ];
 
-    /**
-     * Get the user that owns the order.
-     */
+
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }
 
-    /**
-     * Get the items for the order.
-     */
+
     public function items(): HasMany
     {
         return $this->hasMany(OrderItem::class);
     }
 
-    /**
-     * Get the formatted status.
-     */
+
     public function getFormattedStatusAttribute(): string
     {
         return ucfirst($this->status);
     }
 
-    /**
-     * Get the formatted payment status.
-     */
+
     public function getFormattedPaymentStatusAttribute(): string
     {
         return ucfirst($this->payment_status);

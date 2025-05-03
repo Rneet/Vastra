@@ -10,11 +10,7 @@ class Product extends Model
 {
     use HasFactory;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array<int, string>
-     */
+
     protected $fillable = [
         'name',
         'description',
@@ -25,9 +21,7 @@ class Product extends Model
         'status',
     ];
 
-    /**
-     * Get the order items for the product.
-     */
+
     public function orderItems(): HasMany
     {
         return $this->hasMany(OrderItem::class);
